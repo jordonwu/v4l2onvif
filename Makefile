@@ -57,14 +57,14 @@ libonvif.a: $(ONVIF_SRC:%.cpp=%.o)
 
 # ws-discovery
 libwsdd.a:
-	git submodule init ws-discovery
-	git submodule update ws-discovery
+	#git submodule init ws-discovery
+	#git submodule update ws-discovery
 	make -C ws-discovery/gsoap libwsdd.a
 	cp ws-discovery/gsoap/libwsdd.a .
 
 # v4l2rtsp
 liblibv4l2rtspserver.a:
-	git submodule update --recursive --init v4l2rtspserver
+	#git submodule update --recursive --init v4l2rtspserver
 	cd v4l2rtspserver && cmake -DALSA=OFF -DCMAKE_CXX_COMPILER=$(CXX) -DCMAKE_C_COMPILER=$(CC) -DCMAKE_CXX_FLAGS=$(CMAKE_CXX_FLAGS) . && make libv4l2rtspserver		
 	cp v4l2rtspserver/$@ .
 
